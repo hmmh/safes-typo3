@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+if ('cli' !== PHP_SAPI) {
+    echo sprintf("Warning: SAFE should be invoked via the CLI version of PHP, not the %s SAPI\n\n", PHP_SAPI);
+}
+
+require 'vendor/autoload.php';
+
+use Composer\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+
+{
+    $application = new Application();
+
+    try {
+        $application->run(new ArrayInput(['command' => 'serve']));
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+}

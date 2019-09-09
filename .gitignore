@@ -1,0 +1,5 @@
+vendor
+.idea
+.env
+_cache
+_public

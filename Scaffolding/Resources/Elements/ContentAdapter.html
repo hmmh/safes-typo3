@@ -1,0 +1,16 @@
+<f:if condition="{raw}">
+    <f:then>
+        <f:format.raw>{raw}</f:format.raw>
+    </f:then>
+
+    <f:else>
+        <f:if condition="{data.uid}">
+            <f:then>
+                {data.uid->f:cObject(typoscriptObjectPath:"lib.tx_casewebsite.content")}
+            </f:then>
+            <f:else>
+                <f:render arguments="{data}" partial="{partial}"/>
+            </f:else>
+        </f:if>
+    </f:else>
+</f:if>

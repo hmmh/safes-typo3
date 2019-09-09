@@ -1,0 +1,61 @@
+{
+    "name": "hmmh/standalone-frontend-stage",
+    "license": "GPL-2.0",
+    "type": "library",
+    "description": "Front-end stage server for developing stand-alone fluid templates without having to use TYPO3.",
+    "keywords": [
+        "frontend",
+        "front-end",
+        "standalone",
+        "stand-alone",
+        "stage",
+        "staging",
+        "scaffolding",
+        "skeleton",
+        "server",
+        "fluid",
+        "typo3"
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-simplexml": "*",
+        "typo3fluid/fluid": "^2.6",
+        "symfony/yaml": "^4.2",
+        "helhum/dotenv-connector": "^2.1",
+        "tracy/tracy": "^2.6"
+    },
+    "require-dev": {
+        "composer/composer": "^1.9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "HMMH\\SAFES\\": "Classes/"
+        },
+        "files": [
+            "Mockups/CObjectViewHelper.php",
+            "Mockups/TranslateViewHelper.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Jan Runte - HMMH AG",
+            "email": "jan.runte@hmmh.de",
+            "homepage": "https://www.github.com/hmmh/standalone-frontend-scaffolding"
+        }
+    ],
+    "config": {
+        "process-timeout": 0
+    },
+    "bin": [
+        "bin/serve"
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "HMMH\\SAFES\\DeveloperHelper::composerServe"
+        ],
+        "serve": [
+            "HMMH\\SAFES\\DeveloperHelper::openBrowser",
+            "@php -S 127.0.0.1:8080 StandaloneRouter.php"
+        ]
+    }
+}
