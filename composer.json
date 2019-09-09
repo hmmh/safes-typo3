@@ -1,5 +1,5 @@
 {
-    "name": "hmmh/standalone-frontend-stage",
+    "name": "hmmh/safes4typo3",
     "license": "GPL-2.0",
     "type": "library",
     "description": "Front-end stage server for developing stand-alone fluid templates without having to use TYPO3.",
