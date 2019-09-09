@@ -8,11 +8,22 @@ use TYPO3Fluid\Fluid\View\TemplateView;
 {
     require_once 'vendor/autoload.php';
 
-    $debugger = null;
+    {
+        // Working Directory
+
+        $workingDirectory = realpath(
+            __DIR__ . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, array_fill(0, 3, '..'))
+        );
+
+        if (!$workingDirectory) {
+            throw new Exception('Cannot find working directory!');
+        }
+    }
 
     {
         // Debugging
 
+        $debugger = null;
         $development = (!empty($_ENV['SAFES_DEVELOPMENT']));
 
         if ($development) {
@@ -35,7 +46,7 @@ use TYPO3Fluid\Fluid\View\TemplateView;
         // Scaffolding
 
         $scaffolding = [
-            $resourcesRoot = sprintf('%s%s%s', __DIR__, DIRECTORY_SEPARATOR, trim($_ENV['SAFES_RESOURCE_ROOT'], '/\\') ?? 'Resources'),
+            $resourcesRoot = sprintf('%s%s%s', $workingDirectory, DIRECTORY_SEPARATOR, trim($_ENV['SAFES_RESOURCE_ROOT'], '/\\') ?? 'Resources'),
             $localizationsRoot = sprintf('%s%s%s', $resourcesRoot, DIRECTORY_SEPARATOR, '_Localizations'),
 
             $elementsRoot = sprintf('%s%s%s', $resourcesRoot, DIRECTORY_SEPARATOR, 'Elements'),
@@ -76,7 +87,7 @@ use TYPO3Fluid\Fluid\View\TemplateView;
         // Caching
 
         if (!empty($cacheRoot = $_ENV['SAFES_CACHE_ROOT'])) {
-            $cacheDirectory = sprintf('%s%s%s', __DIR__, DIRECTORY_SEPARATOR, trim($cacheRoot, '/\\'));
+            $cacheDirectory = sprintf('%s%s%s', $workingDirectory, DIRECTORY_SEPARATOR, trim($cacheRoot, '/\\'));
             (is_dir($cacheDirectory)) ?: @mkdir($cacheDirectory);
 
             if ($cacheDirectory) {

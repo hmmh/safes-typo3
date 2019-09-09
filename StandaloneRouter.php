@@ -7,7 +7,7 @@ use TYPO3Fluid\Fluid\View\TemplateView;
 {
     require_once 'Initialization.inc';
 
-    $publicRoot = sprintf('%s%s%s', __DIR__, DIRECTORY_SEPARATOR, trim($_ENV['SAFES_PUBLIC_ROOT'], '/\\') ?? '_cache');
+    $publicRoot = sprintf('%s%s%s', $workingDirectory, DIRECTORY_SEPARATOR, trim($_ENV['SAFES_PUBLIC_ROOT'], '/\\') ?? '_public');
 
     $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 
