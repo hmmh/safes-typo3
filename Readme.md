@@ -1,5 +1,5 @@
-SAFES TYPO3 - Stand-alone Front-end Stage
-=========================================
+SAFES 4 TYPO3 - Stand-alone Front-end Stage for TYPO3
+=====================================================
 
 This is a skeleton for developing Fluid templates without a TYPO3 backend (or a virtual machine setup).
 
