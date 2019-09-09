@@ -9,7 +9,7 @@ Requirements
 
 **PHP 7.1**
 
-__macOS <= 10.13:__
+__macOS 10.12 <= 10.13:__
 
     $ brew install php@7.1
     $ brew install composer
