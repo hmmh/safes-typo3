@@ -106,27 +106,6 @@ You can create additional localization keys in `Resources/_Localizations/Fronten
 ```
 
 
-**(White-)Spaceless content**
-
-To guarantee a rendering content wo/ whitespaces in there, you can use following:
-
-```
-    <f:spaceles>
-        <h1>
-            <f:if condition="{anything}">
-                <f:then>
-                    This
-                </f:then>
-    
-                <f:else>
-                    That
-                </f:else>
-            </f:if>
-        </h1>
-    </f:spaceless>
-```
- 
-
 **New self-contained content elements**
 
 Place new content elements in "Resources/Elements/Molecules" or "Resources/Elements/Organisms" (with required wrapped html tag).
@@ -259,23 +238,16 @@ Usage if section definition are inside the fluid file:
 Useful View Helpers
 -------------------
 
-JSON:
-```
-    {
-        "1": { title: "A" },
-        "2": { title: "B" },
-        "3": { title: "C" },
-        "4": { title: "D" }
-    }
-```
+**Repeat arrays**
 
-Fluid:
 ```
     <f:for each="{array}" as="content" key="keyName">
         {content.title}
         {keyName}
     </f:for>
 ```
+
+**Conditions**
 
 ```
     <f:if condition="{value} == 123">
@@ -298,9 +270,31 @@ Fluid:
     </f:if>
 ```
 
+**(White-)Spaceless content**
+
+To guarantee a rendering content wo/ whitespaces in there, you can use following:
+
+```
+    <f:spaceless>
+        <h1>
+            <f:if condition="{anything}">
+                <f:then>
+                    This
+                </f:then>
+    
+                <f:else>
+                    That
+                </f:else>
+            </f:if>
+        </h1>
+    </f:spaceless>
+```
+
+---
+
 Have a look in `typo3-fluid/vendor/typo3fluid/fluid/src/ViewHelpers` or `webroot/typo3/sysext/fluid/Classes/ViewHelpers`.
 
-Structured view helper can be used with:
+Structured (sub folder) view helper can be used with:
 
 ```
     <f:format.raw>…</f:format.raw>
