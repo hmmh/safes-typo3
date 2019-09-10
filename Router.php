@@ -5,7 +5,7 @@ use Tracy\Debugger;
 use TYPO3Fluid\Fluid\View\TemplateView;
 
 {
-    require_once 'Initialization.inc';
+    require_once 'Setup.inc';
 
     $publicRoot = sprintf('%s%s%s', $workingDirectory, DIRECTORY_SEPARATOR, trim($_ENV['SAFES_PUBLIC_ROOT'], '/\\') ?? '_public');
 
