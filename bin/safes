@@ -15,12 +15,18 @@ if (file_exists(__DIR__ . '/../autoload.php')) {
 
 use Composer\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 
 {
+    if (false === getenv('COMPOSER')) {
+        putenv(sprintf('COMPOSER=%s', realpath(__DIR__ . '/../composer.json')));
+    }
+
     $application = new Application();
+    $application->setAutoExit(true);
 
     try {
-        $application->run(new ArrayInput(['command' => 'serve']));
+        $application->run(new ArrayInput(['command' => 'safes']), new NullOutput());
     } catch (Exception $e) {
         echo $e->getMessage();
     }

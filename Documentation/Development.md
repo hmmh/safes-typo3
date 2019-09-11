@@ -3,7 +3,11 @@ Start development
 
 Open a separate bash instance for a web server instance: 
 
-    $ composer serve
+    $ safes
+
+Or (depends on missing `PATH` entries):
+
+    $ composer exec safes
 
 The web page is provided over https://127.0.0.1:8080/ and use the generated document root "public".
 

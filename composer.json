@@ -45,13 +45,13 @@
         "process-timeout": 0
     },
     "bin": [
-        "bin/serve"
+        "bin/safes"
     ],
     "scripts": {
-        "post-install-cmd": [
-            "HMMH\\SAFES\\DeveloperHelper::composerServe"
+        "run": [
+            "HMMH\\SAFES\\DeveloperHelper::runSafes"
         ],
-        "serve": [
+        "safes": [
             "HMMH\\SAFES\\DeveloperHelper::openBrowser",
             "@php -S 127.0.0.1:8080 -t ${SAFES_PUBLIC_ROOT} Router.php"
         ]

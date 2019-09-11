@@ -3,11 +3,12 @@ SAFES 4 TYPO3 - Stand-alone Front-end Stage for TYPO3
 
 This is a skeleton for developing Fluid templates without a TYPO3 backend (or a virtual machine setup).
 
-Index
------
+Table of contents
+-----------------
 
 1. [Requirements](#requirement)
 2. [Installation](#installation)
+2. [Setup](#setup)
 3. [Start development](Documentation/Development.md)
 4. [Useful View Helpers](Documentation/ViewHelpers.md)
 5. [Directory Structure](Documentation/Structure.md)
@@ -53,15 +54,28 @@ Then: Following the instruction on https://getcomposer.org/download/
 
 Have a look here: https://github.com/phpbrew/phpbrew
 
-
 <a name="installation">Installation</a>
 ---------------------------------------
 
-Depends on a already existing Frontend project! ;-)
+Simply require this package into your new sub-project:
 
-The sub project for integrating frontend parts into fluid templates can be installed with:
+    $ cd src_frontend
+    $ mkdir src_html
+    $ cd src_html
+    $ composer init
+    ...
+    $ composer require hmmh/safes4typo3
+    ...
 
-    $ composer install
 
-During the installation process, multiple symlinks are created to provide a working web page
-(see "Directory structure"/public).
+<a name="setup">Setup</a>
+-------------------------
+
+Implements script entry in your `composer.json` for the help message after installation process to inform the
+developer what are the next step:
+
+    "scripts": {
+        "post-install-cmd": [
+            "HMMH\\SAFES\\DeveloperHelper::runSafes"
+        ],
+    }
